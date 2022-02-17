@@ -45,7 +45,6 @@ cpp = "0.5.5"
 libc = "0.2.77"
 maybe-owned = "0.3.4"
 thiserror = "1.0.20"
-link-cplusplus = { version = "1.0", features = ["libstdc++"] }
 
 [build-dependencies]
 bart = { version = "0.1.4", optional = true }
