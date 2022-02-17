@@ -37,5 +37,3 @@ rm -rf ${thisDir}/downloads/eigen/doc
 rm -rf ${thisDir}/downloads/eigen/demos
 rm -rf ${thisDir}/downloads/eigen/bench
 rm -rf ${thisDir}/downloads/absl/ci
-
-git -C ${thisDir}/downloads apply -v ${thisDir}/make-NativeTable-configurable-as-polymorphic.patch
