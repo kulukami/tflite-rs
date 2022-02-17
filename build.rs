@@ -160,6 +160,11 @@ fn prepare_tensorflow_library() {
         }
         println!("cargo:rustc-link-search=native={}", out_dir);
         println!("cargo:rustc-link-lib=static=tensorflow-lite{}", binary_changing_features);
+
+        if let Ok(libstdc_static_a) = env::var("STDLIBCXX_STATIC_PATH"){
+            println!("cargo:rustc-flags=-l static=stdc++");
+            println!("cargo:rustc-link-search=native={}",libstdc_static_a);
+        }
     }
     #[cfg(not(feature = "build"))]
     {
@@ -182,7 +187,6 @@ fn prepare_tensorflow_library() {
         println!("cargo:rustc-link-lib=dylib=pthread");
         println!("cargo:rustc-link-lib=dylib=dl");
     }
-    println!("cargo:rustc-link-lib=stdc++");
 }
 
 // This generates "tflite_types.rs" containing structs and enums which are inter-operable with Glow.
